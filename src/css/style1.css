@@ -1,0 +1,40 @@
+@import url(https://meyerweb.com/eric/tools/css/reset/reset.css);
+body {
+  background-color: #f9f5eb;
+}
+
+body .page-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 3px solid salmon;
+  height: 99.5vh;
+}
+
+body .page-container header {
+  background-color: #002b5b;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+  text-align: center;
+  color: white;
+}
+
+body .page-container main {
+  border: 4px solid green;
+  max-width: 1080px;
+  width: 98%;
+  margin: 0 auto;
+}
+
+body .page-container footer {
+  background-color: #002b5b;
+  margin-top: auto;
+  padding: 2rem 0;
+  text-align: center;
+  color: white;
+}
+/*# sourceMappingURL=style1.css.map */
