@@ -36,13 +36,13 @@ body {
       gap: 1rem;
       padding: 4rem 0;
       align-items: center;
-      background-color: white;
+      background-color: $lightcolor;
       border-radius: 1rem;
       .post-container {
         border: 3px solid black;
         padding: 2rem 1rem;
         width: 70%;
-        background-color: $lightcolor;
+        background-color: white;
         border-radius: 0.8rem;
       }
     }

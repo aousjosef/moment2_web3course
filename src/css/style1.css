@@ -43,7 +43,7 @@ body .page-container main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: white;
+  background-color: #e4dccf;
   border-radius: 1rem;
 }
 
@@ -51,7 +51,7 @@ body .page-container main .post-container {
   border: 3px solid black;
   padding: 2rem 1rem;
   width: 70%;
-  background-color: #e4dccf;
+  background-color: white;
   border-radius: 0.8rem;
 }
 
