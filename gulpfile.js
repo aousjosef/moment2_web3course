@@ -27,8 +27,8 @@ function scssTask() {
 
 function jsTask() {
   return src(files.jsPath) //väljer js filer
-    .pipe(concat("main.js"))
-    .pipe(terser())
+    .pipe(concat("main.js")) //slår ihop js filer
+    .pipe(terser()) //miniferar js
     .pipe(dest("pub/js")); //publicerar till
 }
 
@@ -57,6 +57,7 @@ function watchTask() {
   );
 }
 
+//Export default för att start med kommand "gulp"
 exports.default = series(
   parallel(htmlTask, scssTask, jsTask),
 
