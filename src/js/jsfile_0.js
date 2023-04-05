@@ -1,1 +1,1 @@
-let msg = "Message after merges, this is master branch";
+let msg = "Message after merges, MASTER BRANCH";
