@@ -23,15 +23,22 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      i {
+        cursor: pointer;
+      }
     }
 
-    #nav {
-      // display: none;
+    .menu-open {
+      display: block;
+    }
+
+    nav {
+      display: none;
       background-color: rgba(0, 0, 0, 0.3);
       border: 1px solid black;
       backdrop-filter: blur(5px);
       position: fixed;
-      width: 50%;
+      width: 35%;
       height: 100vh;
 
       .menu-container {
@@ -43,6 +50,7 @@ body {
         i {
           color: white;
           margin-top: 1rem;
+          cursor: pointer;
         }
         ul {
           width: 100%;
@@ -62,12 +70,6 @@ body {
               background-color: black;
             }
           }
-          // li {
-          //   margin: 1rem 0;
-          //   padding: 2rem;
-          //   border: 2px solid yellow;
-          //   background-color: magenta;
-          // }
         }
       }
     }
@@ -100,5 +102,12 @@ body {
       text-align: center;
       color: white;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  /* Styles for tablets and smaller screens (including mobile) */
+  nav {
+    width: 100% !important;
   }
 }
