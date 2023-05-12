@@ -18,11 +18,13 @@ function htmlTask() {
 
 //scss task
 function scssTask() {
-  return src(files.scssPath) //väljer scss filer
-    .pipe(sass()) //konvertera scss till css
-    .pipe(concat("main_style.css")) //slår ihop ihop scss filerna
-    .pipe(cssnano()) //miniferar css
-    .pipe(dest("pub/css")); //publicerar till pub mappen
+  return (
+    src(files.scssPath) //väljer scss filer
+      .pipe(sass().on("error", sass.logError)) //konvertera scss till css
+      // .pipe(concat("main_style.css")) //slår ihop ihop css filerna
+      // .pipe(cssnano()) //miniferar css
+      .pipe(dest("pub"))
+  ); //publicerar till pub mappen
 }
 
 function jsTask() {
