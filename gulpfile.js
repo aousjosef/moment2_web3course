@@ -4,6 +4,7 @@ const concat = require("gulp-concat");
 const browserSync = require("browser-sync").create();
 const cssnano = require("gulp-cssnano");
 const terser = require("gulp-terser");
+const sourcemaps = require("gulp-sourcemaps");
 
 const files = {
   htmlPath: "src/**/*.html",
@@ -20,9 +21,11 @@ function htmlTask() {
 function scssTask() {
   return (
     src(files.scssPath) //väljer scss filer
-      .pipe(sass().on("error", sass.logError)) //konvertera scss till css
+      .pipe(sourcemaps.init()) // sourcemap för att felsöka rätt fil
+      .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)) //konvertera scss till css
       // .pipe(concat("main_style.css")) //slår ihop ihop css filerna
       // .pipe(cssnano()) //miniferar css
+      .pipe(sourcemaps.write("./maps"))
       .pipe(dest("pub"))
   ); //publicerar till pub mappen
 }

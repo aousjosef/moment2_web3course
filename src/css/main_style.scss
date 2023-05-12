@@ -1,5 +1,5 @@
 @import "reset";
-@import 'var';
+@import "var";
 
 body {
   background-color: #f9f5eb;
@@ -18,8 +18,58 @@ body {
       background-color: $darkcolor;
       margin-bottom: 2rem;
       padding: 2rem 0;
-      text-align: center;
+      // text-align: center;
       color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #nav {
+      // display: none;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid black;
+      backdrop-filter: blur(5px);
+      position: fixed;
+      width: 50%;
+      height: 100vh;
+
+      .menu-container {
+        display: flex;
+        flex-direction: column;
+        // border: 3px solid blue;
+        justify-content: space-around;
+        margin-top: 1rem;
+        i {
+          color: white;
+          margin-top: 1rem;
+        }
+        ul {
+          width: 100%;
+          // border: 1px solid red;
+          text-align: center;
+
+          a {
+            text-decoration: none;
+            display: inline-block;
+            // border: 3px solid yellow;
+            width: 98.7%;
+            padding: 2rem 0;
+            margin: 1rem 0;
+            font-size: 2rem;
+            color: white;
+            &:hover {
+              background-color: black;
+            }
+          }
+          // li {
+          //   margin: 1rem 0;
+          //   padding: 2rem;
+          //   border: 2px solid yellow;
+          //   background-color: magenta;
+          // }
+        }
+      }
     }
 
     main {
