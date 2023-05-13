@@ -2,14 +2,16 @@ const { src, dest, watch, series, parallel } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const concat = require("gulp-concat");
 const browserSync = require("browser-sync").create();
-const cssnano = require("gulp-cssnano");
 const terser = require("gulp-terser");
 const sourcemaps = require("gulp-sourcemaps");
+const imagemin = require("gulp-imagemin");
+const gulp = require("gulp");
 
 const files = {
   htmlPath: "src/**/*.html",
   jsPath: "src/**/*.js",
   scssPath: "src/**/*.scss",
+  imagePath: "src/images/**/*",
 };
 
 // html Task
@@ -37,6 +39,12 @@ function jsTask() {
     .pipe(dest("pub/js")); //publicerar till
 }
 
+//images minify task
+
+function imageTask() {
+  return src(files.imagePath).pipe(imagemin()).pipe(gulp.dest("pub/images"));
+}
+
 //Browsersync server start
 
 function browsersyncServer(cb) {
@@ -57,14 +65,14 @@ function browsersyncReload(cb) {
 //watch task
 function watchTask() {
   watch(
-    [files.htmlPath, files.scssPath, files.jsPath],
-    series(parallel(htmlTask, scssTask, jsTask), browsersyncReload)
+    [files.htmlPath, files.scssPath, files.jsPath, files.imagePath],
+    series(parallel(imageTask, htmlTask, scssTask, jsTask), browsersyncReload)
   );
 }
 
 //Export default för att start med kommand "gulp"
 exports.default = series(
-  parallel(htmlTask, scssTask, jsTask),
+  parallel(imageTask, htmlTask, scssTask, jsTask),
 
   browsersyncServer,
   watchTask
