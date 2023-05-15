@@ -1,22 +1,37 @@
 @import "reset";
 @import "var";
-@mixin shadow() {
-  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+
+@mixin shadow($opa) {
+  box-shadow: rgba(100, 100, 111, $opa) 0px 7px 29px 0px;
+}
+
+%border {
+  border: 1px solid black;
+}
+
+@mixin text-size($size) {
+  @if $size == big {
+    font-size: 1.8rem;
+  } @else if $size == medium {
+    font-size: 1.15rem;
+  } @else {
+    font-size: 1rem;
+  }
 }
 
 body {
   background-color: #f9f5eb;
-  line-height: 1.45rem;
+  line-height: 1.65rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   .page-container {
     display: flex;
     flex-direction: column;
-
     height: 100vh;
+
     h1 {
-      font-size: 1.8rem;
+      @include text-size(big);
       font-weight: bold;
     }
 
@@ -40,7 +55,7 @@ body {
     nav {
       display: none;
       background-color: rgba(0, 0, 0, 0.3);
-      border: 1px solid black;
+      @extend %border;
       backdrop-filter: blur(5px);
       position: fixed;
       width: 35%;
@@ -49,18 +64,18 @@ body {
       .menu-container {
         display: flex;
         flex-direction: column;
-
         justify-content: space-around;
         margin-top: 1rem;
+
         i {
           color: white;
-
           margin-left: 1rem;
           cursor: pointer;
         }
+
         ul {
           width: 100%;
-          // border: 1px solid red;
+          // @include border(green);
           text-align: center;
 
           a {
@@ -92,22 +107,24 @@ body {
       align-items: center;
       background-color: lighten($lightcolor, 50%);
       border-radius: 1rem;
-      @include shadow;
+      @include shadow(0.8);
 
       .post-container {
-        // border: 1px solid black;
         padding: 2rem 1rem;
         margin: 1rem 0;
         width: 70%;
         background-color: white;
         border-radius: 0.4rem;
-        @include shadow;
+        @include shadow(0.4);
+        @include text-size(medium);
+        // @extend %border;
         h1 {
           margin-bottom: 1rem;
         }
 
         img {
-          width: 100%;
+          max-width: 100%;
+          height: auto;
           border-radius: 0.8rem;
           margin-bottom: 2rem;
         }
@@ -120,6 +137,7 @@ body {
       padding: 2rem 0;
       text-align: center;
       color: white;
+      @include text-size(small);
     }
   }
 }
