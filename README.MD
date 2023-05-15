@@ -1,5 +1,17 @@
 # Webbutveckling III - 2023
 
+## Moment 2 - SASS + Gulp - Aous Josef
+
+Följnade moment fokuserarde på att applicera grunderna inom SASS, så som
+
+- Variabler
+- Nesting
+- Mixins
+- Selector inheritance (nyckelordet "@extend")
+- If/else-satser
+
+Gulp användes för omvanlda SCSS kod till CSS kod.
+
 ## Moment 1 - Gulp - Aous Josef
 
 Det här projektet handlar om Gulp, byggsystem och task runner som ofta används i webbutvecklingsprojekt som hjälper utvecklare att automatisera repetitiva uppgifter, som att kompilera och minifiera CSS- och JavaScript-filer och sammanfoga filer, med mera
