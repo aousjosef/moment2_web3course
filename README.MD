@@ -11,6 +11,7 @@ Följnade moment fokuserarde på att applicera grunderna inom SASS, så som
 - If/else-satser
 
 Gulp användes för omvanlda SCSS kod till CSS kod.
+http://studenter.miun.se/~aojo2100/dt173g/m2/
 
 ## Moment 1 - Gulp - Aous Josef
 
