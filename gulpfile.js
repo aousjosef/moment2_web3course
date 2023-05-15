@@ -65,14 +65,17 @@ function browsersyncReload(cb) {
 //watch task
 function watchTask() {
   watch(
-    [files.htmlPath, files.scssPath, files.jsPath, files.imagePath],
-    series(parallel(imageTask, htmlTask, scssTask, jsTask), browsersyncReload)
+    [files.htmlPath, files.scssPath, files.jsPath],
+    series(parallel(htmlTask, scssTask, jsTask), browsersyncReload)
   );
 }
 
+//Exportera imagestask vid behov då den tar tid för att ladda.Exkludera från browserSync.
+exports.imageTask = imageTask;
+
 //Export default för att start med kommand "gulp"
 exports.default = series(
-  parallel(imageTask, htmlTask, scssTask, jsTask),
+  parallel(htmlTask, scssTask, jsTask),
 
   browsersyncServer,
   watchTask
